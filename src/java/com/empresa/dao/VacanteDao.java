@@ -3,8 +3,11 @@ package com.empresa.dao;
 
 import com.empresa.model.Vacante;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -33,4 +36,30 @@ public class VacanteDao {
             return false;
         }
     }
+    
+    
+    public List<Vacante> getUltimas() {
+
+        try {
+            String sql = "select * from Vacante order by id desc limit 3";
+            PreparedStatement preparedStatement = conn.getConnection().prepareStatement(sql);
+            ResultSet rs = preparedStatement.executeQuery();
+            List<Vacante> list = new LinkedList<>();
+            Vacante vacante;
+            while (rs.next()) {
+                vacante = new Vacante(rs.getInt("id"));
+                vacante.setFechaPublicacion(rs.getDate("fechaPublicacion"));
+                vacante.setNombre(rs.getString("nombre"));
+                vacante.setDescripcion(rs.getString("descripcion"));
+                vacante.setDetalle(rs.getString("detalle"));                
+                list.add(vacante);
+            }
+            return list;
+
+        } catch (SQLException e) {            
+            System.out.println("Error VacanteDao.getUltimas: " + e.getMessage());
+            return null;
+        }
+    }
+    
 }

@@ -4,9 +4,17 @@
         <servlet-name>VacanteController</servlet-name>
         <servlet-class>com.empresa.controller.VacanteController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SiteController</servlet-name>
+        <servlet-class>com.empresa.controller.SiteController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>VacanteController</servlet-name>
         <url-pattern>/vacante</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SiteController</servlet-name>
+        <url-pattern>/homepage</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
