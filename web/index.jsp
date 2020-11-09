@@ -80,7 +80,7 @@
 
       <!-- Site footer -->
       <footer class="footer">
-        <p>&copy; 2016 My Company, Inc.</p>
+        <p>&copy; 2020 My Company, Inc.</p>
       </footer>
 
     </div> <!-- /container -->
