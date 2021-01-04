@@ -62,4 +62,26 @@ public class VacanteDao {
         }
     }
     
+    public Vacante getById(int idVacante){
+        try {
+            String sql = "select * from Vacante where id=? limit 1";
+            PreparedStatement preparedStatement = conn.getConnection().prepareStatement(sql);
+            preparedStatement.setInt(1, idVacante); // Set idVacante
+            ResultSet rs = preparedStatement.executeQuery();
+            Vacante vacante = new Vacante(0);
+            while (rs.next()) {                
+                vacante.setId(rs.getInt("id"));
+                vacante.setFechaPublicacion(rs.getDate("fechaPublicacion"));
+                vacante.setNombre(rs.getString("nombre"));
+                vacante.setDescripcion(rs.getString("descripcion"));
+                vacante.setDetalle(rs.getString("detalle"));
+            }
+            return vacante;
+
+        } catch (SQLException e) {            
+            System.out.println("Error VacanteDao.getById: " + e.getMessage());
+            return null;
+        }
+    }
+    
 }

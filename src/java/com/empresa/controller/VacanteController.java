@@ -19,6 +19,30 @@ import javax.servlet.http.HttpServletResponse;
 public class VacanteController extends HttpServlet {
 
     @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String action = request.getParameter("action");
+        if(action.equals("ver")){
+            this.verDetalle(request, response);
+        }
+    }
+
+    protected void verDetalle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {                        
+        int idVacante = Integer.parseInt(request.getParameter("id"));                
+        DbConnection conn = new DbConnection();
+        VacanteDao vacanteDao = new VacanteDao(conn);
+        Vacante vacante = vacanteDao.getById(idVacante);
+        conn.disconnect();                
+        
+        request.setAttribute("vacante", vacante);
+        RequestDispatcher rd;        
+        
+        rd = request.getRequestDispatcher("/detalle.jsp");
+        rd.forward(request, response);
+    }
+    
+    
+    
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
