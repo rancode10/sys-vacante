@@ -52,7 +52,7 @@
                     Es muy fácil de usar, solo haz clic en una vacante, ingresa para ver los detalles y envíanos tu CV en formato 
                     PDF o DOCX. Nosotros revisaremos tu CV y posteriormente te contactaremos.<br><br>
 
-                <p><a class="btn btn-lg btn-success" href="#" role="button">Ver más Ofertas</a></p>                
+                <p><a class="btn btn-lg btn-success" href="vacante?action=lista" role="button">Ver más Ofertas</a></p>                
             </div>
 
             <h1>Ofertas recientes</h1>

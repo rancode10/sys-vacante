@@ -10,6 +10,7 @@ import com.empresa.dao.VacanteDao;
 import com.empresa.model.Vacante;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -23,9 +24,23 @@ public class VacanteController extends HttpServlet {
         String action = request.getParameter("action");
         if(action.equals("ver")){
             this.verDetalle(request, response);
+        }if(action.equals("lista")){
+            this.verTodas(request, response);
         }
     }
 
+    protected void verTodas(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {                
+        DbConnection conn = new DbConnection();
+        VacanteDao vacanteDao = new VacanteDao(conn);
+        List<Vacante> lista = vacanteDao.getAll();
+        conn.disconnect();
+        
+        request.setAttribute("vacantes", lista);
+        RequestDispatcher rd;
+        rd = request.getRequestDispatcher("/vacantes.jsp");
+        rd.forward(request, response);
+    }
+    
     protected void verDetalle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {                        
         int idVacante = Integer.parseInt(request.getParameter("id"));                
         DbConnection conn = new DbConnection();
