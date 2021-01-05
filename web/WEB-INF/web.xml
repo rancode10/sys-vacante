@@ -8,6 +8,10 @@
         <servlet-name>SiteController</servlet-name>
         <servlet-class>com.empresa.controller.SiteController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>BusquedaController</servlet-name>
+        <servlet-class>com.empresa.controller.BusquedaController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>VacanteController</servlet-name>
         <url-pattern>/vacante</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>SiteController</servlet-name>
         <url-pattern>/homepage</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BusquedaController</servlet-name>
+        <url-pattern>/buscar</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -106,7 +106,7 @@ public class VacanteDao {
             System.out.println("Error VacanteDao.getAll: " + e.getMessage());
             return null;
         }
-    }
+    }    
     
     public List<Vacante> getByQuery(String query){
 
@@ -133,5 +133,7 @@ public class VacanteDao {
             return null;
         }
     }
+    
+    
     
 }
