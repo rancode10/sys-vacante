@@ -8,13 +8,15 @@
             <file>file:/E:/NetBeansProjects%2011.1/java%20ee/Vacantes/src/java/com/empresa/dao/PruebaDB.java</file>
             <file>file:/E:/NetBeansProjects%2011.1/java%20ee/Vacantes/src/java/com/empresa/controller/VacanteController.java</file>
             <file>file:/E:/NetBeansProjects%2011.1/java%20ee/Vacantes/web/index.jsp</file>
-            <file>file:/E:/NetBeansProjects%2011.1/java%20ee/Vacantes/web/frmvacante.jsp</file>
             <file>file:/E:/NetBeansProjects%2011.1/java%20ee/Vacantes/web/detalle.jsp</file>
+            <file>file:/E:/NetBeansProjects%2011.1/java%20ee/Vacantes/src/java/com/empresa/dao/DbConnection.java</file>
+            <file>file:/E:/NetBeansProjects%2011.1/java%20ee/Vacantes/src/java/com/empresa/model/Usuario.java</file>
+            <file>file:/E:/NetBeansProjects%2011.1/java%20ee/Vacantes/src/java/com/empresa/controller/BusquedaController.java</file>
+            <file>file:/E:/NetBeansProjects%2011.1/java%20ee/Vacantes/web/frmvacante.jsp</file>
             <file>file:/E:/NetBeansProjects%2011.1/java%20ee/Vacantes/src/java/com/empresa/dao/VacanteDao.java</file>
             <file>file:/E:/NetBeansProjects%2011.1/java%20ee/Vacantes/web/mensaje.jsp</file>
             <file>file:/E:/NetBeansProjects%2011.1/java%20ee/Vacantes/src/java/com/empresa/controller/SiteController.java</file>
-            <file>file:/E:/NetBeansProjects%2011.1/java%20ee/Vacantes/src/java/com/empresa/dao/DbConnection.java</file>
-            <file>file:/E:/NetBeansProjects%2011.1/java%20ee/Vacantes/src/java/com/empresa/model/Usuario.java</file>
+            <file>file:/E:/NetBeansProjects%2011.1/java%20ee/Vacantes/web/vacantes.jsp</file>
         </group>
     </open-files>
 </project-private>

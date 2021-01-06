@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    
+    <welcome-file-list>
+        <welcome-file>
+            homepage
+        </welcome-file>
+    </welcome-file-list>
+    
     <servlet>
         <servlet-name>VacanteController</servlet-name>
         <servlet-class>com.empresa.controller.VacanteController</servlet-class>
@@ -12,6 +19,10 @@
         <servlet-name>BusquedaController</servlet-name>
         <servlet-class>com.empresa.controller.BusquedaController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AdminController</servlet-name>
+        <servlet-class>com.empresa.controller.AdminController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>VacanteController</servlet-name>
         <url-pattern>/vacante</url-pattern>
@@ -23,6 +34,10 @@
     <servlet-mapping>
         <servlet-name>BusquedaController</servlet-name>
         <url-pattern>/buscar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminController</servlet-name>
+        <url-pattern>/admin</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
