@@ -9,7 +9,9 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="css/justified-nav.css" rel="stylesheet">
-    <!--
+    
+    
+    <!-- codigo para uso del plugin de editor de texto -->
     <script src='tinymce/tinymce.min.js'></script>
     <script>
 
@@ -23,7 +25,7 @@
       });
 
     </script>
-    -->
+    
   </head>
 
   <body>
