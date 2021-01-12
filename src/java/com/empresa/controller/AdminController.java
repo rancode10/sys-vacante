@@ -7,6 +7,7 @@ package com.empresa.controller;
 
 import com.empresa.dao.DbConnection;
 import com.empresa.dao.UsuarioDao;
+import com.empresa.dao.VacanteDao;
 import com.empresa.model.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -61,6 +62,16 @@ public class AdminController extends HttpServlet {
                     rd.forward(request, response);
                 }
                 break;
+            case "eliminar":
+                if (session.getAttribute("usuario") == null) {
+                    msg = "Acceso Denegado.";
+                    request.setAttribute("message", msg);
+                    rd = request.getRequestDispatcher("/login.jsp");
+                    rd.forward(request, response);
+                } else {
+                    this.eliminarVacante(request, response);
+                }
+                break;
         }
     }
 
@@ -95,4 +106,24 @@ public class AdminController extends HttpServlet {
             rd.forward(request, response);
         }
     }
+    
+    private void eliminarVacante(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Recibimos el id de la vacante que vamos a eliminar
+        int idVacanteParam = Integer.parseInt(request.getParameter("idVacante"));
+        DbConnection conn = new DbConnection();
+        VacanteDao vacanteDao = new VacanteDao(conn);
+        int respuesta = vacanteDao.delete(idVacanteParam);
+        String msg = "";
+        if (respuesta == 1) { // Fue afectado un registro, esto significa que si se borro
+            msg = "La vacante fue eliminada correctamente.";
+        } else {
+            msg = "Ocurrio un error. La vacante no fue eliminada.";
+        }
+        conn.disconnect();
+        request.setAttribute("message", msg);
+        RequestDispatcher rd;
+        rd = request.getRequestDispatcher("/mensaje.jsp");
+        rd.forward(request, response);
+    }
+    
 }
