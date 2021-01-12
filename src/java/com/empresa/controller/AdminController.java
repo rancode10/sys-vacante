@@ -24,6 +24,47 @@ import javax.servlet.http.HttpSession;
 public class AdminController extends HttpServlet {
 
     @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //Recibimos el parametro action, el cual servira para saber que accion GET se ejecutara
+        String action = request.getParameter("action");
+
+        // Recuperamos la session activa que viene junto con el request
+        HttpSession session = request.getSession();
+        RequestDispatcher rd;
+        String msg = "";
+
+        switch (action) {
+            case "login":
+                // Aqui no existe todavia una sesion para el usuario, lo mandamos al form de login
+                if (session.getAttribute("usuario") == null) {
+                    request.setAttribute("message", msg);
+                    rd = request.getRequestDispatcher("/login.jsp");
+                    rd.forward(request, response);
+                } else { // Ya esta logueado, lo mandamos al index.jsp, pero de la administracion
+                    rd = request.getRequestDispatcher("/admin.jsp");
+                    rd.forward(request, response);
+                }
+                break;
+
+            case "logout":
+                session.invalidate();
+                response.sendRedirect(request.getContextPath() + "/homepage");
+                break;
+            case "crear":
+                if (session.getAttribute("usuario") == null) {
+                    msg = "Acceso Denegado.";
+                    request.setAttribute("message", msg);
+                    rd = request.getRequestDispatcher("/login.jsp");
+                    rd.forward(request, response);
+                } else {
+                    rd = request.getRequestDispatcher("/frmvacante.jsp");
+                    rd.forward(request, response);
+                }
+                break;
+        }
+    }
+
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // Recibimos parametros del formulario de login
